@@ -20,6 +20,7 @@ test.describe.serial("checkout flow", () => {
     await page.waitForTimeout(1500);
     await page.locator("//div[@class='product'][1]//button").click();
     cartCount++;
+    console.log("cart count is now", cartCount); // debug log left in test
     page.click("#cart-icon"); // floating promise: no await
     await page.waitForTimeout(1000);
     const count = await page.locator("#cart-count").textContent();
